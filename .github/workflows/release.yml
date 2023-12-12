@@ -1,9 +1,9 @@
 name: release
 
 on:
-  create:
+  push:
     tags:
-      - v*
+      - 'v*'
 
 env:
   APP_IMAGE_NAME: abra19/devops-example-app

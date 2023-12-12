@@ -4,8 +4,9 @@ docker build -t abra19/devops-example-app .
 ```
 
 ### Build and push Image on Docker hub automatic control by workwlows
-```main.yml  - works on push```
 [![main](https://github.com/Abra19/docker-first-deploy/actions/workflows/main.yml/badge.svg)](https://github.com/Abra19/docker-first-deploy/actions/workflows/main.yml)
+
+```main.yml  - works on push```
 
 
 
