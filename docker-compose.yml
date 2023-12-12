@@ -3,10 +3,10 @@ version: "3"
 services:
   app:
     build: .
-    image: hexletcomponents/devops-example-app
+    image: abra19/devops-example-app
 
   caddy:
     build:
       context: .
       dockerfile: services/caddy/Dockerfile
-    image: hexletcomponents/devops-example-caddy
+    image: abra19/devops-example-caddy
