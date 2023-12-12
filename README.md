@@ -1,6 +1,6 @@
 ### Build Image manual control
 ```
-docker build -t abra19/test-devops-example-app .
+docker build -t abra19/devops-example-app .
 ```
 
 ### Build and push Image on Docker hub automatic control by workwlows
