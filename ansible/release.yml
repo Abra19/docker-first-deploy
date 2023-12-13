@@ -9,7 +9,7 @@
 
       - community.docker.docker_container:
           name: app # имя используется как домен
-          image: "abra19/docker-first-deploy-app:latest"
+          image: "abra19/docker-first-deploy-app:{{ version }}"
           restart_policy: always
           state: started
           networks: # Добавляем контейнер в сеть
@@ -21,7 +21,7 @@
 
       - community.docker.docker_container:
           name: caddy # имя используется как домен
-          image: "abra19/docker-first-deploy-caddy:latest"
+          image: "abra19/docker-first-deploy-caddy:{{ version }}"
           restart_policy: always
           state: started
           networks: # Добавляем контейнер в сеть

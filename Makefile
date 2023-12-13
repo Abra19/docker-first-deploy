@@ -1,4 +1,4 @@
-compose-setup: compose-build compose-install
+compose-setup: env-prepare compose-build compose-install
 
 compose-build:
 	docker-compose build
@@ -34,6 +34,8 @@ docker-push:
 	docker-compose -f docker-compose.yml build
 	docker-compose -f docker-compose.yml push app
 
+setup: env-prepare install
+
 install:
 	npm ci
 
@@ -46,11 +48,15 @@ lint:
 lint-fix:
 	npx eslint . --fix
 
+
 test:
 	npm test
 
-setup_server:
-	ansible-playbook ansible/setup.yml -i ansible/inventory.yml -u root
+env-prepare:
+	cp -n .env.example .env || true
 
 deploy:
-	ansible-playbook ansible/release.yml -i ansible/inventory.yml -u root
+	ansible-playbook ansible/release.yml -i inventory.ini --extra-vars "version=$V"
+
+ssh:
+	ssh root@`yq e '.all.children.webservers.hosts.web1.ansible_host' ansible/inventory.yml`
