@@ -49,11 +49,8 @@ lint-fix:
 test:
 	npm test
 
-tag:
-	git tag $(TAG) && git push --tags --no-verify
-
-next-tag:
-	make tag TAG=$(shell bin/generate_next_tag)
+setup_server:
+	ansible-playbook ansible/setup.yml -i ansible/inventory.yml -u root
 
 deploy:
 	ansible-playbook ansible/release.yml -i ansible/inventory.yml -u root
