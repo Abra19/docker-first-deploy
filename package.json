@@ -1,5 +1,5 @@
 {
-  "name": "devops-example-app",
+  "name": "docker-first-deploy",
   "version": "1.0.0",
   "description": "devops example app",
   "type": "module",

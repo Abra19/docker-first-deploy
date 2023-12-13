@@ -19,7 +19,7 @@ compose-test:
 	docker-compose run app make test
 
 compose-test-ci:
-	docker-compose -f docker-compose.yml run app make test
+	pwd && docker-compose -f docker-compose.yml run app make test
 
 compose-console:
 	docker-compose run --rm app bash
