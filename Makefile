@@ -56,8 +56,10 @@ env-prepare:
 	cp -n .env.example .env || true
 
 setup_server:
-	ansible-playbook ansible/setup.yml -i ansible/inventory.yml --extra-vars="version=v${V}" -vv
+	ansible-playbook ansible/setup.yml -i ansible/inventory.yml
+	# ansible-playbook ansible/setup.yml -i ansible/inventory.yml --extra-vars="version=v${V}" -vv
 
 deploy:
-	ansible-playbook ansible/release.yml -i ansible/inventory.yml --extra-vars="version=v${V}" -vv
+	ansible-playbook ansible/release.yml -i ansible/inventory.yml
+	# ansible-playbook ansible/release.yml -i ansible/inventory.yml --extra-vars="version=v${V}" -vv
 
