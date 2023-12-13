@@ -20,7 +20,8 @@
     "fastify-cli": "^5.7.1",
     "lodash": "^4.17.21",
     "pug": "^3.0.2",
-    "rollbar": "^2.26.2"
+    "rollbar": "^2.26.2",
+    "test": "^3.3.0"
   },
   "devDependencies": {
     "eslint": "^8.44.0",
