@@ -1,20 +1,31 @@
   - hosts: all
     gather_facts: no
     tasks:
+      # Создаем общую сеть
+      # Контейнеры добавленные в эту сеть, могут обращаться друг к другу по имени контейнера,
+      # который становится dns именем
+      - community.docker.docker_network:
+          name: devops-example
+
       - community.docker.docker_container:
-          name: app
-          # Обязательно указываем тег, который хотим деплоить
-          # Если образа на сервере нет, Ansible его автоматически скачает
-          image: "abra19/devops-example-app:latest"
-          # Подключаем супервизор
-          # Если контейнер остановится, например, из-за ошибок
-          # супервизор Docker его перезапустит
+          name: app # имя используется как домен
+          image: "abra19/docker-first-deploy-app:latest"
           restart_policy: always
-          # Запускаем, если не запущен
           state: started
-          # Делаем доступным снаружи
-          ports:
-            - 3000:3000
-          env: # Настраиваем
+          networks: # Добавляем контейнер в сеть
+            - name: devops-example
+          ports: # Больше не нужно выставлять наружу, потому что доступ идет через Caddy
+            # - 3000:3000
+          env:
             NODE_ENV: production
-            SERVER_MESSAGE: "Hello from Abra19!"
+
+      - community.docker.docker_container:
+          name: caddy # имя используется как домен
+          image: "abra19/docker-first-deploy-caddy:latest"
+          restart_policy: always
+          state: started
+          networks: # Добавляем контейнер в сеть
+            - name: devops-example
+          ports:
+            - 80:80
+            - 443:443
