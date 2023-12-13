@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --runInBand",
-    "start": "bin/start.sh"
+    "start": "fastify start server/plugin.js -a 0.0.0.0 -l info | pino-pretty -S"
   },
   "author": "Hexlet",
   "license": "ISC",
