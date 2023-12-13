@@ -4,9 +4,6 @@
   "description": "devops example app",
   "type": "module",
   "main": "index.js",
-  "jest": {
-    "verbose": true
-  },
   "scripts": {
     "test": "jest --runInBand",
     "start": "bin/start.sh"

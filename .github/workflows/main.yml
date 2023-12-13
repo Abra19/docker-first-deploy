@@ -29,7 +29,7 @@ jobs:
           load: true
           tags: ${{ env.TEST_TAG }}
 
-      - run: make compose-test
+      - run: make compose-test-ci
       - run: make compose-lint-ci
 
       - name: Build and push app
