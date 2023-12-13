@@ -8,7 +8,7 @@
     "verbose": true
   },
   "scripts": {
-    "test": "./node_modules/.bin/jest --runInBand",
+    "test": "jest --runInBand",
     "start": "bin/start.sh"
   },
   "author": "Hexlet",
