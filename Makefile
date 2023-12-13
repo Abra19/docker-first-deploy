@@ -55,8 +55,9 @@ test:
 env-prepare:
 	cp -n .env.example .env || true
 
-deploy:
-	ansible-playbook ansible/release.yml -i inventory.ini --extra-vars "version=$V"
+setup_server:
+	ansible-playbook ansible/setup.yml -i ansible/inventory.yml --extra-vars="version=v${V}" -vv
 
-ssh:
-	ssh root@`yq e '.all.children.webservers.hosts.web1.ansible_host' ansible/inventory.yml`
+deploy:
+	ansible-playbook ansible/release.yml -i ansible/inventory.yml --extra-vars="version=v${V}" -vv
+
