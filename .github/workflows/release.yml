@@ -6,8 +6,8 @@ on:
       - 'v*'
 
 env:
-  APP_IMAGE_NAME: abra19/devops-example-app
-  CADDY_IMAGE_NAME: abra19/devops-example-caddy
+  APP_IMAGE_NAME: abra19/docker-first-deploy-app
+  CADDY_IMAGE_NAME: abra19/docker-first-deploy-caddy
 
 jobs:
   docker:
