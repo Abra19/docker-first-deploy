@@ -47,7 +47,7 @@ lint-fix:
 	npx eslint . --fix
 
 test:
-	npm test
+	npx test
 
 setup_server:
 	ansible-playbook ansible/setup.yml -i ansible/inventory.yml -u root
