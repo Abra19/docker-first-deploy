@@ -19,6 +19,7 @@
             # - 3000:3000
           env:
             NODE_ENV: production
+            SERVER_MESSAGE: "HELLO ABRA19!!!"
 
       - community.docker.docker_container:
           name: caddy # имя используется как домен

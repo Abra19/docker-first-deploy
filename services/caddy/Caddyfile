@@ -25,4 +25,19 @@ localhost, abrarov.ru {
     log {
         format json
     }
+
+    # Обрабатываем 502 ошибку при перезагрузке
+    reverse_proxy {
+        to app:3000
+
+        @error status 502 # Только 502 ошибки
+        handle_response @error {
+        # Путь по которому хранятся html-файлы для разных ошибок
+            root * /app/services/caddy/error_pages
+            # Для всех 502 запросов отдаем файл 502.html
+            #Имя произвольное
+            rewrite * /502.html
+            file_server
+        }
+    }
 }
