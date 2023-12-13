@@ -12,6 +12,7 @@ services:
       - .:/app
     ports:
       - 3000:3000
+    image: abra19/devops-example-app
 
   caddy: # Веб-сервер
     build: # Находится внутри services/caddy
@@ -23,3 +24,4 @@ services:
     ports:
       - 80:80
       - 443:443
+    image: abra19/devops-example-caddy
