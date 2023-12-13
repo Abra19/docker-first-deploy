@@ -8,8 +8,8 @@ services:
       context: .
       # Имя Docker-файла из которого будет собран образ
       dockerfile: Dockerfile
-    #volumes:
-      #- .:/app
+    # volumes:
+    #   - .:/app
     ports:
       - 3000:3000
 
